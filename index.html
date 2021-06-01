@@ -18,7 +18,7 @@
 <li><a href="#основы">Основы</a></li>
 <li><a href="#переменная">Переменная</a></li>
 <li><a href="#базовые-типы-данных">Базовые типы данных</a></li>
-<li><a href="#операции-над-числами">Операции над числами</a></li>
+<li><a href="#арифметические-операции">Арифметические операции</a></li>
 <li><a href="#операции-над-строками">Операции над строками</a></li>
 <li><a href="#операции-над-логическими-значениями">Операции над логическими значениями</a></li>
 <li><a href="#операции-сравнения">Операции сравнения</a></li>
@@ -34,35 +34,50 @@
     <div class="stackedit__html">
       <h1 id="конспект">Конспект</h1>
 <h2 id="основы">Основы</h2>
-<p>Программа на языке Python выполняется последовательно (построчно).</p>
+<p>Программа на языке Python выполняется последовательно (построчно). Так, следующая программа поочерёдно выведет <code>Hello world</code>, <code>Python 3</code> и <code>42</code>:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Hello world!"</span><span class="token punctuation">)</span>	<span class="token comment"># print() используется для вывода данных</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"Python 3"</span><span class="token punctuation">)</span>	<span class="token comment"># Символ решётки создаёт комментарий — текст,</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">42</span><span class="token punctuation">)</span>		<span class="token comment"># который игнорируется программой</span>
+</code></pre>
 <p><strong>Выражение</strong> — участок кода, вычисляющийся в значение. Например, выражение <code>5 + 10</code> вычисляется в <code>15</code>. Простейшим выражением является <strong>константа</strong> — значение, не требующее вычисления: <code>5</code>, <code>-10</code>, <code>1.5</code>, <code>"Hello"</code> и т. д.</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>		<span class="token comment"># Вывод константы 5</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span> <span class="token operator">+</span> <span class="token number">10</span> <span class="token operator">-</span> <span class="token number">2</span><span class="token punctuation">)</span>	<span class="token comment"># Вывод результата вычисленного выражения (13)</span>
+</code></pre>
 <h2 id="переменная">Переменная</h2>
 <p>Переменная — имя, с помощью которого можно обратиться к данным, сохранённым в памяти компьютера.</p>
 <p>В Python переменная создаётся записью вида<br>
 <code>&lt;название_переменной&gt; = &lt;значение переменной&gt;</code><br>
 Например, запись <code>x = 5</code> создаёт переменную <code>x</code> со значением <code>5</code>.</p>
 <p>В переменную можно записать результат какого-то <em>выражения</em>:</p>
-<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">10</span>	<span class="token comment"># Записать в переменную x сумму 5 и 10</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение переменной x (15)</span>
+<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">11</span>		<span class="token comment"># Записать в переменную x число 11</span>
+y <span class="token operator">=</span> <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">10</span>	<span class="token comment"># Записать в переменную y сумму 5 и 10</span>
+</code></pre>
+<p>И в дальнейшем использовать:</p>
+<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">20</span>
+y <span class="token operator">=</span> <span class="token number">15</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение переменной x (20)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>y <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">)</span>	<span class="token comment"># Прибавить 2 к значению переменной y и вывести (17)</span>
+z <span class="token operator">=</span> x <span class="token operator">+</span> y	<span class="token comment"># Записать в переменную z сумму x и y</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>z<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение переменной z (35)</span>
 </code></pre>
 <p>Переменные можно перезаписывать:</p>
-<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">5</span>		<span class="token comment"># Записать в переменную x значение 5</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение x (5)</span>
-x <span class="token operator">=</span> <span class="token number">7</span>		<span class="token comment"># Записать в переменную x значение 7</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение x (7)</span>
+<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">5</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># 5</span>
+x <span class="token operator">=</span> <span class="token number">7</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># 7</span>
 </code></pre>
 <p>Переменные нельзя использовать до создания:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Ошибка — нет переменной с именем 'x'</span>
 x <span class="token operator">=</span> <span class="token number">5</span>
 </code></pre>
 <p>Но можно использовать при перезаписи:</p>
-<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">10</span>		<span class="token comment"># Записать в переменную x значение 10</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение переменной x (10)</span>
-x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span>	<span class="token comment"># Записать в переменную x значение выражения x + 1</span>
-<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># Вывести значение переменной x (11) </span>
+<pre class=" language-python"><code class="prism  language-python">x <span class="token operator">=</span> <span class="token number">10</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># 10</span>
+x <span class="token operator">=</span> x <span class="token operator">+</span> <span class="token number">1</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>x<span class="token punctuation">)</span>	<span class="token comment"># 11</span>
 </code></pre>
 <h2 id="базовые-типы-данных">Базовые типы данных</h2>
-<p>У любой переменной есть <em>тип данных</em>. Он определяет возможные значения переменной и доступные операции. В Python четыре основных типов данных — int, float, str и bool:</p>
+<p>У любой переменной есть <em>тип данных</em>. Он определяет возможные значения переменной и доступные операции. Язык Python предоставляет четыре основные типа данных:</p>
 
 <table>
 <thead>
@@ -79,7 +94,7 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <td align="center">Тип</td>
 <td align="center">Целое число</td>
 <td align="center">Вещественное число</td>
-<td align="center">Строку</td>
+<td align="center">Строка</td>
 <td align="center">Логическое значение</td>
 </tr>
 <tr>
@@ -91,14 +106,15 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 </tr>
 </tbody>
 </table><h3 id="int-—-целое-число">int — целое число</h3>
+<p>Целое число — простейший тип данных, аналогичный математическому множеству целых чисел (<strong>Z</strong>).</p>
 <p>Константа состоит из символов от 0 до 9, может иметь знак:<br>
-<code>0</code>, <code>1</code>, <code>254</code>, <code>3E3</code> (3000), <code>-250</code>, <code>+400</code></p>
+<code>0</code>, <code>1</code>, <code>254</code>, <code>3E3</code>, <code>-250</code>, <code>+400</code></p>
 <p>Возможна запись константы в других системах счисления:<br>
-<code>0xF</code> — 15 в шестнадцатиричной (префикс <em>0x</em>)<br>
+<code>0xF</code> — 15 в шестнадцатеричной (префикс <em>0x</em>)<br>
 <code>0o77</code> — 63 в восьмеричной (префикс <em>0o</em>)<br>
 <code>0b101</code> — 5 в двоичной (префикс <em>0b</em>)</p>
 <p>Функция <code>int(x)</code> предназначена для преобразования значений из других типов:</p>
-<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>		<span class="token comment"># 1 (равноценно print(1), т.к. 1 — уже целое число</span>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>		<span class="token comment"># 1</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span><span class="token punctuation">)</span>		<span class="token comment"># 1</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token number">1.5</span><span class="token punctuation">)</span><span class="token punctuation">)</span>		<span class="token comment"># 1 (дробная часть отбрасывается)</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token string">"1"</span><span class="token punctuation">)</span><span class="token punctuation">)</span>		<span class="token comment"># 1</span>
@@ -107,9 +123,9 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span><span class="token punctuation">)</span>	<span class="token comment"># 0</span>
 </code></pre>
 <h3 id="float-—-вещественное-число">float — вещественное число</h3>
+<p>Вещественное число (<em>число с плавающей запятой</em>) — числовой тип данных, аналогичный математическому множеству рациональных чисел (Q).</p>
 <p>Константа содержит числа от 0 до 9 и обязательную точку, может иметь знак:<br>
-<code>0.0</code>, <code>.0</code>, <code>0.</code>, <code>0.0E0</code>, <code>5.</code>, <code>.525</code>, <code>5125E-2</code> (51.25),<br>
-Запись в других системах счисления невозможна.</p>
+<code>0.0</code>, <code>.0</code>, <code>0.</code>, <code>0.0E0</code>, <code>-5.</code>, <code>.525</code>, <code>5125E-2</code></p>
 <p>Функция <code>float(x)</code> предназначена для преобразования значений из других типов:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">1.0</span><span class="token punctuation">)</span>	<span class="token comment"># 1.0</span>
 <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>	<span class="token comment"># 1.0</span>
@@ -119,11 +135,11 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token boolean">True</span><span class="token punctuation">)</span>	<span class="token comment"># 1.0</span>
 <span class="token builtin">float</span><span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>	<span class="token comment"># 0.0</span>
 </code></pre>
-<h3 id="str-—-строка-последовательность-символов">str — строка (последовательность символов)</h3>
+<h3 id="str-—-строка">str — строка</h3>
+<p>Строка — это последовательность символов произвольной длины. Строка <strong>не является числом</strong>, даже если все составляющие её символы являются цифрами. Так, со строкой невозможны арифметические операции без использования ранее рассмотренных функций преобразования в один из числовых типов — int или float.</p>
 <p>Константа начинается и заканчивается на символе кавычки (одинарной или двойной):</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token string">"Hello"</span><span class="token punctuation">,</span> <span class="token string">"Hi"</span><span class="token punctuation">,</span> <span class="token string">"125"</span><span class="token punctuation">,</span> <span class="token string">'Python'</span><span class="token punctuation">,</span> <span class="token string">'I like "PyCharm"'</span><span class="token punctuation">,</span> <span class="token string">"Кириллица"</span><span class="token punctuation">,</span> <span class="token string">"🙉"</span>
 </code></pre>
-<p><code>"Hi!'</code> — ошибка, открывающая и закрывающая кавычки должны быть одинаковы</p>
 <p>Функция <code>str(x)</code> предназначена для преобразования значений из других типов:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token builtin">str</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span>	<span class="token comment"># "abc"</span>
 <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>		<span class="token comment"># "10"</span>
@@ -133,7 +149,7 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token builtin">str</span><span class="token punctuation">(</span><span class="token boolean">False</span><span class="token punctuation">)</span>	<span class="token comment"># "False"</span>
 </code></pre>
 <h3 id="bool-—-логическое-значение">bool — логическое значение</h3>
-<p>Имеет лишь два возможных значения — <code>True</code> (истина, 1) и <code>False</code> (ложь, 0)</p>
+<p>Логический тип данных аналогичен используемым в алгебре логики. Имеет лишь два возможных значения — <code>True</code> (истина, 1) и <code>False</code> (ложь, 0)</p>
 <p>Функция <code>bool(x)</code> предназначена для преобразования значений из других типов:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token builtin">bool</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span>		<span class="token comment"># False</span>
 <span class="token builtin">bool</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>		<span class="token comment"># True</span>
@@ -144,29 +160,31 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token builtin">bool</span><span class="token punctuation">(</span><span class="token string">"abc"</span><span class="token punctuation">)</span>	<span class="token comment"># True</span>
 <span class="token builtin">bool</span><span class="token punctuation">(</span><span class="token string">"False"</span><span class="token punctuation">)</span>	<span class="token comment"># True (любая непустая строка — True)</span>
 </code></pre>
-<h2 id="операции-над-числами">Операции над числами</h2>
-<p><code>+</code> — сложение двух чисел (целых или вещественных):</p>
+<h2 id="арифметические-операции">Арифметические операции</h2>
+<p>Арифметические операции возможны между двумя значениями числового типа. Результат арифметической операции имеет целый тип (int), если оба числа также имеют целый тип.</p>
+<p><strong>Основные арифметические операции:</strong><br>
+<code>+</code> — сложение двух чисел:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">2</span> <span class="token operator">+</span> <span class="token number">5</span>		<span class="token comment"># 7</span>
 <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">1.0</span>		<span class="token comment"># 6.0</span>
 <span class="token number">5</span> <span class="token operator">+</span> <span class="token number">2.5</span>		<span class="token comment"># 7.5</span>
 </code></pre>
-<p><code>-</code> — вычитание двух чисел (целых или вещественных):</p>
+<p><code>-</code> — вычитание двух чисел:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">5</span> <span class="token operator">-</span> <span class="token number">1</span>		<span class="token comment"># 4</span>
 <span class="token number">5</span> <span class="token operator">-</span> <span class="token number">1.0</span>		<span class="token comment"># 4.0</span>
 <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">5</span>		<span class="token comment"># -3</span>
 <span class="token number">2</span> <span class="token operator">-</span> <span class="token number">3.5</span>		<span class="token comment"># -1.5</span>
 </code></pre>
-<p><code>*</code> — умножение двух чисел (целых или вещественных):</p>
+<p><code>*</code> — умножение двух чисел:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2</span>		<span class="token comment"># 4</span>
 <span class="token number">2</span> <span class="token operator">*</span> <span class="token number">2.0</span>		<span class="token comment"># 4.0</span>
 <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">0.5</span>		<span class="token comment"># 2.5</span>
 </code></pre>
-<p><code>/</code> — деление двух чисел (целых или вещественных), в результате всегда вещественное число:</p>
+<p><code>/</code> — деление двух чисел, в результате всегда вещественное число:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">5</span> <span class="token operator">/</span> <span class="token number">2</span>		<span class="token comment"># 2.5</span>
 <span class="token number">2</span> <span class="token operator">/</span> <span class="token number">2</span>		<span class="token comment"># 1.0</span>
 <span class="token number">6</span> <span class="token operator">/</span> <span class="token number">0.5</span>		<span class="token comment"># 12.0</span>
 </code></pre>
-<p><code>//</code> — целочисленное деление двух чисел (целых или вещественных), в результате может быть как целое, так и вещественное число без дробной части:</p>
+<p><code>//</code> — целочисленное деление двух чисел, в результате может быть как целое, так и вещественное число без дробной части:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">5</span> <span class="token operator">//</span> <span class="token number">2</span>		<span class="token comment"># 2</span>
 <span class="token number">2</span> <span class="token operator">//</span> <span class="token number">2</span>		<span class="token comment"># 1</span>
 <span class="token number">10</span> <span class="token operator">//</span> <span class="token number">3.0</span>	<span class="token comment"># 3.0</span>
@@ -185,10 +203,21 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <span class="token number">5</span> <span class="token operator">**</span> <span class="token number">0.5</span>	<span class="token comment"># 5.0 (квадратный корень)</span>
 <span class="token number">2.0</span> <span class="token operator">**</span> <span class="token number">15</span>	<span class="token comment"># 32768.0</span>
 </code></pre>
+<p><code>abs(x)</code> — получение модуля числа</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span>		<span class="token comment"># 5</span>
+<span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">5</span><span class="token punctuation">)</span>		<span class="token comment"># 5</span>
+<span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span>	<span class="token comment"># 0.5</span>
+<span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span>	<span class="token comment"># 0.5</span>
+</code></pre>
+<blockquote>
+<p>Функция также может быть выражением:</p>
+<pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token operator">*</span><span class="token builtin">abs</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>	<span class="token comment"># 50</span>
+</code></pre>
+</blockquote>
 <h2 id="операции-над-строками">Операции над строками</h2>
 <p><code>+</code> — сложение двух строк. Правая строка добавляется в конец левой:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token string">"1"</span> <span class="token operator">+</span> <span class="token string">"1"</span>	<span class="token comment"># "11"</span>
-<span class="token string">"1"</span> <span class="token operator">+</span> <span class="token number">1</span>		<span class="token comment"># Ошибка</span>
+<span class="token string">"1"</span> <span class="token operator">+</span> <span class="token number">1</span>		<span class="token comment"># Ошибка — нельзя складывать строку с числом</span>
 <span class="token string">"a"</span> <span class="token operator">+</span> <span class="token string">"b"</span>	<span class="token comment"># "ab"</span>
 <span class="token string">"a"</span> <span class="token operator">+</span> <span class="token string">"b"</span> <span class="token operator">+</span> <span class="token string">"c"</span> <span class="token comment"># "abc"</span>
 </code></pre>
@@ -196,7 +225,7 @@ x <span class="token operator">=</span> x <span class="token operator">+</span> 
 <pre class=" language-python"><code class="prism  language-python"><span class="token string">"1"</span> <span class="token operator">*</span> <span class="token number">5</span>		<span class="token comment"># "11111"</span>
 <span class="token string">"AB"</span> <span class="token operator">*</span> <span class="token number">5</span>	<span class="token comment"># "ABABABABAB"</span>
 <span class="token number">5</span> <span class="token operator">*</span> <span class="token string">"AB"</span>	<span class="token comment"># "ABABABABAB"</span>
-<span class="token string">"5"</span> <span class="token operator">*</span> <span class="token string">"5"</span>	<span class="token comment"># Ошибка</span>
+<span class="token string">"5"</span> <span class="token operator">*</span> <span class="token string">"5"</span>	<span class="token comment"># Ошибка — нельзя умножать строку на строку</span>
 </code></pre>
 <h2 id="операции-над-логическими-значениями">Операции над логическими значениями</h2>
 <p><code>and</code> — логическое умножение (<em>и</em>):</p>
@@ -229,13 +258,12 @@ z <span class="token operator">=</span> <span class="token boolean">False</span>
 <span class="token comment"># False - программа выведет False!</span>
 </code></pre>
 <h2 id="операции-сравнения">Операции сравнения</h2>
-<p>Операции сравнения в результате имеют логическое значение (<code>True</code> или <code>False</code>)</p>
 <p><code>==</code>  — равенство. <code>True</code>, если значения идентичны, иначе <code>False</code>:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token number">5</span> <span class="token operator">==</span> <span class="token number">5</span>		<span class="token comment"># True</span>
 <span class="token number">2</span> <span class="token operator">==</span> <span class="token number">3</span>		<span class="token comment"># False</span>
 <span class="token number">5.2</span> <span class="token operator">==</span> <span class="token number">5.2</span>	<span class="token comment"># True</span>
 <span class="token number">1.5</span> <span class="token operator">==</span> <span class="token number">1.0</span>	<span class="token comment"># False</span>
-<span class="token number">5.0</span> <span class="token operator">==</span> <span class="token number">5</span>	<span class="token comment"># True</span>
+<span class="token number">5.0</span> <span class="token operator">==</span> <span class="token number">5</span>	<span class="token comment"># True (вещественное число без дробной части равно целому)</span>
 <span class="token number">0b11</span> <span class="token operator">==</span> <span class="token number">3</span>	<span class="token comment"># True</span>
 <span class="token string">"3"</span> <span class="token operator">==</span> <span class="token number">3</span>	<span class="token comment"># False (строка не равна числу)</span>
 </code></pre>
@@ -270,11 +298,11 @@ z <span class="token operator">=</span> <span class="token boolean">False</span>
 x <span class="token operator">=</span> <span class="token number">5</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">"x равен: "</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>	<span class="token comment"># Можно выводить несколько значений через запятую</span>
 </code></pre>
-<p><code>input()</code> — получить значение (строку) от пользователя. Программа останавливает выполнение до получения ввода:</p>
+<p><code>input()</code> — получить значение (строку) от пользователя. Программа останавливает выполнение до нажатия клавиши Enter:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>	<span class="token comment"># Программа выведет ввод пользователя, повторённый дважды</span>
 <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">int</span><span class="token punctuation">(</span><span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span>	<span class="token comment"># Программа выведет ввод пользователя, умноженный на два</span>
 x <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token punctuation">)</span>		<span class="token comment"># В переменную x будет сохранён ввод пользователя (в виде строки)</span>
-x <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Введите значение x: "</span><span class="token punctuation">)</span> <span class="token comment"># При вызове функции input можно добавить пояснение</span>
+x <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">"Введите значение x: "</span><span class="token punctuation">)</span> <span class="token comment"># Можно добавить пояснение</span>
 </code></pre>
 <p><code>len(x)</code> — получить длину строки x в виде целого числа:</p>
 <pre class=" language-python"><code class="prism  language-python"><span class="token builtin">len</span><span class="token punctuation">(</span><span class="token string">"Hi!"</span><span class="token punctuation">)</span>		<span class="token comment"># 3</span>
